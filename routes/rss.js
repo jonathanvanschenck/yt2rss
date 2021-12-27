@@ -13,6 +13,7 @@ router.GET('/', {}, async (req, res) => {
 
     // TODO : look this up in a database
 
+    // FIXME
     let snip_list = [
         {
             title : "Show 2",

@@ -5,12 +5,21 @@
   <title>{{ title }}</title>
   <link>{{ self_url }}</link>
   <description>{{ description }}</description>
+  <language>en-us</language>
+  <pubDate>{{ pub_date }}</pubDate>
+  <lastBuildDate>{{ build_date }}</lastBuildDate>
+  <itunes:image href="{{ logo_url }}"/>
 
   {{#items_list}}
   <item>
     <title>{{ title }}</title>
     <link>{{ self_url }}</link>
     <description>{{ description }}</description>
+    <author>{{ author }}</author>
+    <guid isPermaLink="false">{{ guid }}</guid>
+    <pubDate>{{ pub_date }}</pubDate>
+    <enclosure length="{{ length }}" url="{{ self_url }}" type="audio/mp3"/>
+    <itunes:duration>{{ duration }}</itunes:duration>
   </item>
 
   {{/items_list}}
