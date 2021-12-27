@@ -1,0 +1,12 @@
+{
+    "log_level" : "debug",
+    "public_folder" : "public",
+    "webservice" : {
+        "address" : "localhost",
+        "port" : 1234
+    },
+    "router_list" : [
+        "routes/test.js"
+    ],
+    "middleware_list" : []
+}

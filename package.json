@@ -1,0 +1,33 @@
+{
+  "name": "yt2rss",
+  "version": "1.0.0",
+  "description": "A webserver to convert youtube videos to an audio podcast RSS feed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "run(){ node index.js $1 | ./node_modules/.bin/bunyan; }; run",
+    "start:concise": "run(){ node index.js $1 | ./node_modules/.bin/bunyan -o simple; }; run",
+    "lint": "npx eslint index.js lib/*.js || true",
+    "lint:fix": "npx eslint --fix index.js lib/*.js || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanvanschenck/yt2rss.git"
+  },
+  "author": "Jonathan D. B. Van Schenck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonathanvanschenck/yt2rss/issues"
+  },
+  "homepage": "https://github.com/jonathanvanschenck/yt2rss#readme",
+  "dependencies": {
+    "bunyan": "^1.8.15",
+    "express": "^4.17.2",
+    "morgan": "^1.10.0",
+    "nconf": "^0.11.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "eslint-plugin-node": "^11.1.0"
+  }
+}
