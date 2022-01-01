@@ -1,12 +1,22 @@
 {
     "log_level" : "debug",
     "public_folder" : "public",
-    "webservice" : {
+    "proxy_params" : {
         "address" : "localhost",
+        "port" : 1234,
+        "protocol" : "http"
+    },
+    "mp3_manager" : {
+        "url_path" : "audio",
+        "expiration_time_ms" : 259200000
+    },
+    "webservice" : {
+        "address" : "0.0.0.0",
         "port" : 1234
     },
     "router_list" : [
-        "routes/test.js"
+        "routes/rss.js",
+        "routes/youtube.js"
     ],
     "middleware_list" : []
 }

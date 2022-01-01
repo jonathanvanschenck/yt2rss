@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  web:
+    image: yt2rss:latest
+    restart: always
+    ports:
+      - "$WEBSERVICE_PORT:$WEBSERVICE_PORT"
+    depends_on:
+      - db
+    env_file: ./prod.env
+    links:
+      - "db:$MYSQL_HOST"
+    volumes:
+      - "./backup:/usr/src/app/public/audio"
+  db:
+    image: mysql:latest
+    restart: always
+    env_file: ./db/.env
+    volumes:
+      - "./db/backup:/var/lib/mysql"
+      - "./db/entrypoint:/docker-entrypoint-initdb.d"

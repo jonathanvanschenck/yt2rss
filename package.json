@@ -8,7 +8,11 @@
     "start": "run(){ node index.js $1 | ./node_modules/.bin/bunyan; }; run",
     "start:concise": "run(){ node index.js $1 | ./node_modules/.bin/bunyan -o simple; }; run",
     "lint": "npx eslint index.js lib/*.js || true",
-    "lint:fix": "npx eslint --fix index.js lib/*.js || true"
+    "lint:fix": "npx eslint --fix index.js lib/*.js || true",
+    "docker:build" : "sudo docker build -t yt2rss .",
+    "docker:up" : "sudo docker compose --env-file prod.env up -d && sudo docker compose --env-file prod.env logs -f",
+    "docker:down" : "sudo docker compose --env-file prod.env down",
+    "docker:logs" : "sudo docker compose --env-file prod.env logs -f"
   },
   "repository": {
     "type": "git",
@@ -25,7 +29,9 @@
     "express": "^4.17.2",
     "morgan": "^1.10.0",
     "mustache": "^4.2.0",
-    "nconf": "^0.11.3"
+    "mysql2": "^2.3.3",
+    "nconf": "^0.11.3",
+    "ytdl-core": "^4.9.2"
   },
   "devDependencies": {
     "eslint": "^8.5.0",

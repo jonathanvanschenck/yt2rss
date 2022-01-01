@@ -1,4 +1,9 @@
 config.json
+mysql_config.json
+*.env
+backup
+db/backup
+public/audio/*.mp3
 
 # Logs
 logs

@@ -4,6 +4,7 @@ if ( !config_fp ) config_fp = 'config.json';
 const http = require("http");
 const nconf = require('nconf');
 const bunyan = require('bunyan');
+const mysql = require('mysql2/promise');
 const { resolve, join } = require('path');
 
 nconf.argv().file({ file: config_fp });
@@ -38,10 +39,23 @@ async function start() {
     let log = require("bunyan").createLogger({"name":"yt2rss"});
     log.level( nconf.get("log_level") || "debug" );
 
-    // TODO : create database instance
-    
+    let database = await mysql.createPool(nconf.get('mysql'));
+
+    let mp3_config = nconf.get("mp3_manager");
+    if ( !mp3_config ) mp3_config = {};
+    if ( nconf.get("public_folder") ) {
+        mp3_config.public_path = nconf.get("public_folder")
+    }
+    let proxy_params = nconf.get("proxy_params");
+    if ( !proxy_params ) proxy_params = {};
+    if ( nconf.get("public_folder") ) {
+        mp3_config.public_path = nconf.get("public_folder")
+    }
     let app = factory({
         log : log,
+        database : database,
+        mp3_manager_config : mp3_config,
+        proxy_params : proxy_params,
         public_folder : nconf.get("public_folder") ? resolve(join(__dirname,nconf.get("public_folder"))) : undefined,
         router_list : nconf.get("router_list") ? nconf.get("router_list").map(fp => resolve(join(__dirname,fp))) : [],
         middleware_list : nconf.get("middleware_list") ? nconf.get("middleware_list").map(fp => resolve(join(__dirname,fp))) : [],
