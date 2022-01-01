@@ -3,7 +3,9 @@ A webserver to convert youtube videos to an audio podcast RSS feed
 
 ## Basic Usage
 `POST /api/youtube/podcasts?v=<yt_video_id>` - Trigger a video to get converted
+
 `GET /api/youtube/status` - check on the status of the converting videos queue
+
 `GET /api/rss/misc.xml` - subscribe to this in your podcast app
 
 ## Setup for docker
@@ -48,9 +50,9 @@ npm run start:concise
 ```
 
 ## TODO
- [ ] Make basic index.html with description
- [ ] Add a favicon.ico to public
- [ ] Add channel subscriptions with pubsubhubbub
- [ ] Add https support
- [ ] Add actual authentication support
- [ ] Fix audio mountpoint in docker-compose to be modular
+  - Make basic index.html with description
+  - Add a favicon.ico to public
+  - Add channel subscriptions with pubsubhubbub
+  - Add https support
+  - Add actual authentication support
+  - Fix audio mountpoint in docker-compose to be modular
