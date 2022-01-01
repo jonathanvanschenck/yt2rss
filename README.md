@@ -1,6 +1,10 @@
 # yt2rss
 A webserver to convert youtube videos to an audio podcast RSS feed
 
+## Basic Usage
+`POST /api/youtube/podcasts?v=<yt_video_id>` - Trigger a video to get converted
+`GET /api/youtube/status` - check on the status of the converting videos queue
+`GET /api/rss/misc.xml` - subscribe to this in your podcast app
 
 ## Setup for docker
 ```bash

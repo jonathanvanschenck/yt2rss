@@ -4,7 +4,7 @@ const { join } = require('path');
 
 const { GET } = require("./lib/requester.js");
 
-let config = require('../config.json');
+let config = require('./config.json');
 
 let [ url ] = process.argv.slice(2);
 if ( !url ) {
