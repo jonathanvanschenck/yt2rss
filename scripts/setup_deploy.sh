@@ -9,6 +9,12 @@ fi
 # Load the environment
 export $(cat prod.env | sed 's/#.*//g' | xargs)
 
+# Make sure MYSQL_HOST is *not* "localhost
+if [ "$MYSQL_HOST" == "localhost" ]; then
+  echo "MYSQL_HOST value is set to 'localhost', this will fail in a docker container, please change it to something else in 'prod.env'" >&2
+  exit 1;
+fi
+
 echo ""
 echo " Got environment variables : "
 

@@ -1,6 +1,6 @@
 {
   "name": "yt2rss",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A webserver to convert youtube videos to an audio podcast RSS feed",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,9 @@
     "docker:build" : "sudo docker build -t yt2rss .",
     "docker:up" : "sudo docker compose --env-file prod.env up -d && sudo docker compose --env-file prod.env logs -f",
     "docker:down" : "sudo docker compose --env-file prod.env down",
-    "docker:logs" : "sudo docker compose --env-file prod.env logs -f"
+    "docker:logs" : "sudo docker compose --env-file prod.env logs -f",
+    "setup:prod" : "./scripts/setup_deploy.sh",
+    "setup:dev" : "./scripts/setup_dev.sh"
   },
   "repository": {
     "type": "git",
